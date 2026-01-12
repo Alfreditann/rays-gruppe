@@ -35,7 +35,15 @@ func _physics_process(delta: float) -> void:
 				anim.play("Left_idle")
 			elif $AnimatedSprite2D.animation == "Right":
 				anim.play("Rigth_idle")
-			
+		if Input.is_action_just_pressed("ui_up"):
+			anim.play("Back_idle")
+		elif Input.is_action_just_pressed("ui_down"):
+			anim.play("Front_idle")
+		elif Input.is_action_just_pressed("ui_left"):
+			anim.play("Left_idle")
+		elif Input.is_action_just_pressed("ui_right"):
+			anim.play("Rigth_idle")
+		
 	
 	#if Input.is_action_just_pressed("ui_up"):
 		
