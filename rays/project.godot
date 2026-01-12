@@ -103,7 +103,6 @@ Escape={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 textures/default_filters/use_nearest_mipmap_filter=true
 viewport/hdr_2d=true
 textures/decals/filter=0
