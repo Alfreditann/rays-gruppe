@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://bu4h3l4aembag"]
+
+[ext_resource type="Texture2D" uid="uid://cvwchely77i5r" path="res://Sprites/pausemenu-rays.png" id="1_epl5b"]
+[ext_resource type="Script" uid="uid://bw5ncuyj8t2e2" path="res://Script/pause_menu.gd" id="1_rfhe0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gdsfm"]
+texture = ExtResource("1_epl5b")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_epl5b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfhe0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g31w0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5g577"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydsj6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udlf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eank3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4j7j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca2gr"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_rfhe0")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gdsfm")
+
+[node name="ReturnToGame" type="Button" parent="."]
+offset_left = 207.0
+offset_top = 331.0
+offset_right = 481.0
+offset_bottom = 400.0
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_epl5b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfhe0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g31w0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5g577")
+
+[node name="QuitToMainMenu" type="Button" parent="."]
+offset_left = 715.0
+offset_top = 332.0
+offset_right = 931.0
+offset_bottom = 399.0
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_epl5b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rfhe0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g31w0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ydsj6")
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 440.0
+offset_top = 148.0
+offset_right = 748.0
+offset_bottom = 211.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_udlf0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eank3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t4j7j")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ca2gr")
+
+[connection signal="pressed" from="ReturnToGame" to="." method="_on_return_to_game_pressed"]
+[connection signal="pressed" from="QuitToMainMenu" to="." method="_on_quit_to_main_menu_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

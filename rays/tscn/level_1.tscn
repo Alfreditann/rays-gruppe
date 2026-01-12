@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b3486tkxi2ipb"]
+[gd_scene load_steps=16 format=4 uid="uid://b3486tkxi2ipb"]
 
 [ext_resource type="Texture2D" uid="uid://djrw3nkl1gjjg" path="res://Sprites/Tileset.png" id="1_pnq3n"]
 [ext_resource type="PackedScene" uid="uid://d1tufnylu2iec" path="res://tscn/character_body_2d.tscn" id="3_ou3g8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bw7obonb2e2vm" path="res://tscn/no_move_mirro_2.tscn" id="5_pyd7c"]
 [ext_resource type="PackedScene" uid="uid://f5f0cra4vv3c" path="res://tscn/GlassBevegelse.tscn" id="5_w33rq"]
 [ext_resource type="PackedScene" uid="uid://c2n64kuephuhl" path="res://tscn/monster.tscn" id="6_pyd7c"]
+[ext_resource type="PackedScene" uid="uid://bu4h3l4aembag" path="res://tscn/pause_menu.tscn" id="7_u4ld8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibj5y"]
 texture = ExtResource("1_pnq3n")
@@ -676,6 +677,7 @@ position = Vector2(628, 175)
 position = Vector2(369, 175)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(368, 400)
+position = Vector2(564, 328)
 scale = Vector2(0.999998, 1)
-zoom = Vector2(3, 3)
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_u4ld8")]
