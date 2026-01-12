@@ -21,8 +21,8 @@ global="*res://global.gd"
 
 [display]
 
-window/size/viewport_width=5000
-window/size/viewport_height=3000
+window/size/viewport_width=1000
+window/size/viewport_height=1000
 
 [filesystem]
 
@@ -100,5 +100,6 @@ move_rigth={
 
 textures/canvas_textures/default_texture_filter=0
 textures/default_filters/use_nearest_mipmap_filter=true
+viewport/hdr_2d=true
 textures/decals/filter=0
 textures/light_projectors/filter=0

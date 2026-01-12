@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvb6hkc08lx0n"]
+
+[ext_resource type="FontFile" uid="uid://d0earjg3lblmr" path="res://Fonts/pixelmax/Pixelmax-Regular.otf" id="1_hpdlp"]
+[ext_resource type="Texture2D" uid="uid://clxgbfjfuoyd2" path="res://Sprites/mainmenu-rays.png" id="1_ymtcx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymtcx"]
+bg_color = Color(0.0821593, 0.721014, 0.2693, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.5
+offset_right = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1984, 1242)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -136.0
+offset_right = 102.5
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Mainmenu-rays" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(89.5277, 198.074)
+scale = Vector2(0.864818, 1.54938)
+texture = ExtResource("1_ymtcx")
+offset = Vector2(15, -42)
+
+[node name="StartGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.896827, 0.567215, 0.308374, 1)
+theme_override_fonts/font = ExtResource("1_hpdlp")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymtcx")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.896827, 0.567215, 0.308374, 1)
+theme_override_fonts/font = ExtResource("1_hpdlp")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymtcx")
+text = "Setting"
+
+[node name="QuitGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.896827, 0.567215, 0.308374, 1)
+theme_override_fonts/font = ExtResource("1_hpdlp")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ymtcx")
+text = "QuitGame"
