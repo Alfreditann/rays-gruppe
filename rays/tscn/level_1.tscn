@@ -654,7 +654,7 @@ tile_set = SubResource("TileSet_3kf8w")
 position = Vector2(331, 335)
 
 [node name="Player" parent="." instance=ExtResource("3_ou3g8")]
-position = Vector2(372, 400)
+position = Vector2(368, 397)
 scale = Vector2(0.74585, 0.57267)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
