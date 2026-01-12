@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8bp7yjd6idsh"]
+
+[ext_resource type="Script" uid="uid://cet7uhhhq5mdv" path="res://Script/laserScript.gd" id="1_wb1vr"]
+[ext_resource type="Texture2D" uid="uid://47ifhvbpgtow" path="res://Sprites/fireball(3).png" id="1_wltir"]
+[ext_resource type="Texture2D" uid="uid://baxyj02v3h2rw" path="res://Sprites/Fireball2.webp" id="3_b4oaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiowd"]
+size = Vector2(32, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb1vr"]
+atlas = ExtResource("1_wltir")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2vue"]
+atlas = ExtResource("3_b4oaf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2vue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb1vr")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2vue")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 12
+collision_mask = 12
+gravity_scale = 0.0
+script = ExtResource("1_wb1vr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.325094, 0.321328)
+shape = SubResource("RectangleShape2D_jiowd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 114.89
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.325094, 0.321328)
+sprite_frames = SubResource("SpriteFrames_u2vue")
+animation = &"Left"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

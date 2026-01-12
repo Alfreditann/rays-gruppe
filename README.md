@@ -1,3 +1,2 @@
-# rays-gruppe
-
-skibidi
+# Rays
+Ett spil der du må reflektere lys....

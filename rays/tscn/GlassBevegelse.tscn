@@ -1,0 +1,154 @@
+[gd_scene load_steps=16 format=3 uid="uid://f5f0cra4vv3c"]
+
+[ext_resource type="Script" uid="uid://bjbdpm2kmjtml" path="res://Script/Changing_Mirror.gd" id="1_eb2hk"]
+[ext_resource type="Texture2D" uid="uid://chm6h26mvkc8q" path="res://Sprites/mirror.png" id="2_eb2hk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb2hk"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paybu"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2ft1"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dw2w"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fng4u"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d7dv"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f237s"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd08o"]
+atlas = ExtResource("2_eb2hk")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5i7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb2hk")
+}],
+"loop": true,
+"name": &"first mirror",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paybu")
+}],
+"loop": true,
+"name": &"fourth mirror",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2ft1")
+}],
+"loop": true,
+"name": &"mirror eigth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dw2w")
+}],
+"loop": true,
+"name": &"mirror five",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fng4u")
+}],
+"loop": true,
+"name": &"mirror seven",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d7dv")
+}],
+"loop": true,
+"name": &"mirror six",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f237s")
+}],
+"loop": true,
+"name": &"second mirror",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd08o")
+}],
+"loop": true,
+"name": &"third mirror",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fng4u"]
+size = Vector2(60, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ft1"]
+size = Vector2(62, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dw2w"]
+size = Vector2(42.25, 44.785)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f237s"]
+size = Vector2(41.3775, 24.9667)
+
+[node name="GlassBevegelse" type="StaticBody2D"]
+scale = Vector2(0.327246, 0.367078)
+collision_layer = 13
+collision_mask = 26
+script = ExtResource("1_eb2hk")
+
+[node name="Mirror" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.462, 2.657)
+sprite_frames = SubResource("SpriteFrames_f5i7f")
+animation = &"first mirror"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fng4u")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_y2ft1")
+
+[node name="Activate_Radius" type="Area2D" parent="."]
+position = Vector2(-0.615295, -1.48572)
+scale = Vector2(2.46154, 2.65714)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activate_Radius"]
+modulate = Color(0.306394, 0.667854, 0.0300692, 1)
+shape = SubResource("RectangleShape2D_8dw2w")
+
+[node name="Speil_Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox"]
+position = Vector2(-2, 20)
+rotation = 1.56905
+shape = SubResource("RectangleShape2D_f237s")
+debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)
+
+[connection signal="body_entered" from="Activate_Radius" to="." method="_on_activate_radius_body_entered"]
+[connection signal="body_exited" from="Activate_Radius" to="." method="_on_activate_radius_body_exited"]
+[connection signal="area_entered" from="Speil_Hitbox" to="." method="_on_speil_hitbox_area_entered"]

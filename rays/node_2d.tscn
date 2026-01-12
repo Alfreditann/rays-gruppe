@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://co3ysbs8l2om4"]
+
+[ext_resource type="Script" uid="uid://d2ha1wpmlaxs7" path="res://node_2d.gd" id="1_wtcfe"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_y32ns"]
+file = "res://Animations/towerOGG.ogg"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wtcfe")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -575.0
+offset_top = -322.0
+offset_right = 4241.0
+offset_bottom = 2386.0
+stream = SubResource("VideoStreamTheora_y32ns")
+autoplay = true

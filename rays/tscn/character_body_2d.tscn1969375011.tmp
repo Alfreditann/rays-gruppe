@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1tufnylu2iec"]
+
+[ext_resource type="Script" uid="uid://b8a33vv8yrshm" path="res://Script/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://h2bpmte1rr30" path="res://Sprites/Player Character(3).png" id="2_kymiw"]
+[ext_resource type="Script" uid="uid://dbiyind6un6i5" path="res://Script/skyte.gd" id="3_ghijl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm04k"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox55n"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba70e"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj4qs"]
+atlas = ExtResource("2_kymiw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1f8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm04k")
+}],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox55n")
+}],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba70e")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj4qs")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
+size = Vector2(32, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm04k"]
+size = Vector2(32, 45)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_ij6vw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.5, -10.5)
+scale = Vector2(1.28125, 1.65625)
+sprite_frames = SubResource("SpriteFrames_c1f8i")
+animation = &"Right"
+script = ExtResource("3_ghijl")
+
+[node name="ShootCooldown" type="Timer" parent="AnimatedSprite2D"]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(-4, -9.5)
+shape = SubResource("RectangleShape2D_44cfe")
+
+[node name="Player" type="Area2D" parent="." groups=["player"]]
+position = Vector2(-19, -14)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+modulate = Color(0.188235, 0, 0.0235294, 1)
+position = Vector2(15, 4.5)
+shape = SubResource("RectangleShape2D_xm04k")
+
+[connection signal="timeout" from="AnimatedSprite2D/ShootCooldown" to="AnimatedSprite2D" method="_on_shoot_cooldown_timeout"]
+[connection signal="body_entered" from="Player" to="." method="_on_player_body_entered"]
+[connection signal="body_exited" from="Player" to="." method="_on_player_body_exited"]
