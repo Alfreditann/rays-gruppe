@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckecky7yeb4gc"]
+
+[ext_resource type="VideoStream" uid="uid://dfh2shlp3nn4b" path="res://Animations/Tower long.ogv" id="1_so1pa"]
+
+[node name="AnimationTest" type="Node2D"]
+position = Vector2(566, 277)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -2360.0
+offset_top = -1359.0
+offset_right = 2454.0
+offset_bottom = 1347.0
+stream = ExtResource("1_so1pa")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(21, -5)
+zoom = Vector2(0.244, 0.244)

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/towerOGG.ogg-9dcd8dcca9869a9558aca0070b14c010
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

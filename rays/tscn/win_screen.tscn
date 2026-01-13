@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1qtwoarndsq7"]
+
+[ext_resource type="Script" uid="uid://brm7fcig2p3d4" path="res://Script/win_screen.gd" id="1_ygh2m"]
+[ext_resource type="VideoStream" uid="uid://dfh2shlp3nn4b" path="res://Animations/Tower long.ogv" id="2_6268c"]
+[ext_resource type="PackedScene" uid="uid://ckecky7yeb4gc" path="res://tscn/animation_test.tscn" id="3_gs5de"]
+
+[node name="Win Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygh2m")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = -1790.0
+offset_top = -1027.0
+offset_right = 3024.0
+offset_bottom = 1679.0
+stream = ExtResource("2_6268c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -185.0
+offset_right = 185.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.934456, 0.444676, 0.685015, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 22
+theme_override_font_sizes/font_size = 50
+text = "You won Yippie"
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -91.0
+offset_right = 97.5
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next"
+
+[node name="Quit Game" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_top = -29.0
+offset_right = 84.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit Game"
+
+[node name="AnimationTest" parent="." instance=ExtResource("3_gs5de")]
+
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]
