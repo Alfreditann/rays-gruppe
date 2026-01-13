@@ -10,7 +10,7 @@ size = Vector2(27, 35)
 size = Vector2(8, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_def6h"]
-size = Vector2(11.713032, 23.373625)
+size = Vector2(11.713, 23.3736)
 
 [node name="NoMoveMirror" type="StaticBody2D"]
 script = ExtResource("1_pevcl")
@@ -33,11 +33,11 @@ position = Vector2(-62, -2)
 shape = SubResource("RectangleShape2D_51ug6")
 
 [node name="Speil_Hitbox9" type="Area2D" parent="."]
-scale = Vector2(1, 1.1124239)
+scale = Vector2(1, 1.11242)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Speil_Hitbox9"]
-position = Vector2(0.6884053, 6.301836)
-rotation = 1.569051
-scale = Vector2(0.999999, 0.99999917)
+position = Vector2(0.688405, 6.30184)
+rotation = 1.56905
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_def6h")
 debug_color = Color(0.939591, 1.27065e-05, 0.620872, 0.419608)

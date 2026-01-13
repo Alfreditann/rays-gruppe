@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckecky7yeb4gc"]
 
-[ext_resource type="VideoStream" uid="uid://dfh2shlp3nn4b" path="res://Animations/Tower long.ogv" id="1_so1pa"]
+[ext_resource type="VideoStream" uid="uid://dfjf3akxqq5ug" path="res://Animations/Tower-long.ogv" id="1_so1pa"]
 
 [node name="AnimationTest" type="Node2D"]
 position = Vector2(566, 277)
